@@ -24,9 +24,9 @@ export default async function Home() {
 				{/* <Trending1 /> */}
 				<HeroPost5 />
 				<EditorBlog1 blogs={blogs} />
-				<Cta1 />
+				{/* <Cta1 /> */}
 
-				<HeroPost2 />
+				{/* <HeroPost2 /> */}
 				<Categories />
 				<NewsPost1 />
 				{/* <Watch /> */}

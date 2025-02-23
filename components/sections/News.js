@@ -3,6 +3,7 @@
 import { fetcher } from "@/lib/dataFetcher"
 import { fetchHashnodeBlogs } from "@/lib/hasnode"
 import { useQuery } from "@tanstack/react-query"
+import Link from "next/link"
 import { Autoplay, Navigation, Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 
@@ -48,9 +49,7 @@ export default function News() {
                                     <SwiperSlide key={i}>
                                         <div className="hero-text">
                                             <span className="news"><img src="/assets/img/images/news-icon.png" alt="icon" />Top News</span>
-                                            <span>The Improbable Rise and Savage Fall of Siegfried. How My Phone’s Most Annoying Feature
-                                                Saved My
-                                                Life</span>
+                                            <Link href={`/${item?._id}`}>{item?.title}</Link>
                                         </div>
                                     </SwiperSlide>
                                 ))

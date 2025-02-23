@@ -1,10 +1,9 @@
-import { Post } from "@/types/posts";
-import { HASHNODE_API, PUBLICATION } from "./publication";
+import { HASHNODE_API, PUBLICATION } from "../hasnode";
 
 export const fetchTag = async ({
   limit,
-  tag
-}: { limit?: number, tag?: string } = {}) : Promise<Post[]> => {
+  tag,
+}: { limit?: number; tag?: string } = {}) => {
   const query = {
     query: `query {
         publication(host: "${PUBLICATION}") {
