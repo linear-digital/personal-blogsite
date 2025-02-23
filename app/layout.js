@@ -57,31 +57,29 @@ export async function generateMetadata() {
 }
 
 export default function RootLayout({ children }) {
-	return (
-		<html lang="en">
-			<head>
+  return (
+    <html lang="en">
+      <head>
         <meta name="google-adsense-account" content="ca-pub-4236044300590126" />
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4236044300590126"
           crossOrigin="anonymous"
         ></script>
-		  script async src="https://www.googletagmanager.com/gtag/js?id=G-9R90BV9HK6"></script>
-        <script>
-          {`
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-9R90BV9HK6"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-
             gtag('config', 'G-9R90BV9HK6');
-          `}
-        </script>
-		
+          `,
+        }} />
       </head>
-			<body className={`${inter.variable} ${jost.variable}`}>
-				{/* ✅ Place AdSense meta and script inside body */}
-				{children}
-			</body>
-		</html>
-	)
+      <body className={`${inter.variable} ${jost.variable}`}>
+        {children}
+      </body>
+    </html>
+  );
 }
+
