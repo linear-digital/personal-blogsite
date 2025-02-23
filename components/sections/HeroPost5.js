@@ -33,7 +33,7 @@ export default async function HeroPost5() {
                                         </Link>
                                     ))}
                                     <h3 className="title">
-                                        <Link href="/single-post-1">
+                                        <Link href={postLink(posts[1])}>
                                             {posts[1]?.title?.slice(0, 60)}
                                         </Link>
                                     </h3>
