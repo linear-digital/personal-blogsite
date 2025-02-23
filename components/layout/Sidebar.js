@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-export default function Sidebar({ isSidebar, handleSidebar, isMobileMenu, handleMobileMenu}) {
+export default function Sidebar({ isSidebar, handleSidebar, isMobileMenu, handleMobileMenu }) {
 	return (
 		<>
 			<div id="sidebar-area" className="sidebar-area">
@@ -19,57 +19,10 @@ export default function Sidebar({ isSidebar, handleSidebar, isMobileMenu, handle
 							<img className="logo-light" src="/assets/img/logo/logo-dark.png" alt="logo" />
 						</Link>
 					</div>
-					<p>9621 Agnes Crossing, Lake Suzanneview, New Mexico Island 84604-9295.</p>
 					<ul className="sidebar-info">
-						<li><span>Call:</span> 5267-214-392</li>
-						<li><span>Email:</span> Info.Leadflow@mail.com</li>
+						<li><span>Call:</span> +8801824692955</li>
+						<li><span>Email:</span> tamizrabbi@gmail.com</li>
 					</ul>
-					<div className="list-post-area list-2">
-						<div className="list-post-card">
-							<div className="post-img">
-								<Link href="/single-post-1"><img src="/assets/img/post/trending-post-1.jpg" alt="post" /></Link>
-							</div>
-							<div className="post-content">
-								<h3 className="title">
-									<Link href="/single-post-1">The Climate Shift in Allows Venice to Recover</Link>
-								</h3>
-								<span>July 29, 2024</span>
-							</div>
-						</div>
-						<div className="list-post-card">
-							<div className="post-img">
-								<Link href="/single-post-1"><img src="/assets/img/post/trending-post-2.jpg" alt="post" /></Link>
-							</div>
-							<div className="post-content">
-								<h3 className="title">
-									<Link href="/single-post-1">Football and Figure Skating Collide to The Crowd’s Delight</Link>
-								</h3>
-								<span>July 29, 2024</span>
-							</div>
-						</div>
-						<div className="list-post-card">
-							<div className="post-img">
-								<Link href="/single-post-1"><img src="/assets/img/post/trending-post-3.jpg" alt="post" /></Link>
-							</div>
-							<div className="post-content">
-								<h3 className="title">
-									<Link href="/single-post-1">Tips to Keep Cloud Storage Safe and Secure</Link>
-								</h3>
-								<span>July 29, 2024</span>
-							</div>
-						</div>
-						<div className="list-post-card">
-							<div className="post-img">
-								<Link href="/single-post-1"><img src="/assets/img/post/trending-post-4.jpg" alt="post" /></Link>
-							</div>
-							<div className="post-content">
-								<h3 className="title">
-									<Link href="/single-post-1">The Season Courses and any Salads wow!</Link>
-								</h3>
-								<span>July 29, 2024</span>
-							</div>
-						</div>
-					</div>
 					<ul className="sidebar-social">
 						<li>
 							<Link href="/#"><i className="lab la-facebook-f" /></Link>

@@ -10,7 +10,7 @@ const TrendingPosts = () => {
     const { data: tranding } = useQuery({
         queryKey: ["letest-blogs"],
         queryFn: async () => {
-            const blogs = await fetcher({ path: `/blog/blogs?limit=6&trending=true` });
+            const blogs = await fetcher({ path: `/blog/blogs?limit=7&trending=true` });
             return blogs;
         },
     });

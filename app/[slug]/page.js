@@ -7,6 +7,8 @@ import Link from "next/link"
 import PostComent from "@/components/Card/PostComent"
 import Layout from "@/components/layout/Layout"
 import { fetcher } from "@/lib/dataFetcher"
+import TrendingPosts from "@/components/Card/TrendingPosts"
+import Categorys from "@/components/Card/Categorys"
 
 
 export const generateMetadata = async ({
@@ -56,6 +58,7 @@ export default async function SinglePost1({ params }) {
 	const ip = await ipRes.json()
 	const ipAdress = ip.ip
 	const post = await fetcher({ path: `/blog/single/${slug}?ip=${ipAdress}` })
+	const postUrl = `https://genzit.xyz/${post._id}`
 	return (
 		<>
 			<Layout breadcrumbTitle="title">
@@ -123,28 +126,30 @@ export default async function SinglePost1({ params }) {
 											<div className="box-left">
 												<h4 className="tag">Tagged:</h4>
 												<ul>
-													<li><Link href="/#">Health,</Link></li>
-													<li><Link href="/#">Wellness,</Link></li>
-													<li><Link href="/#">Workout</Link></li>
+													{
+														post?.tags?.map((tag, i) => (
+															<li><Link href={`/category/${tag.slug}`}>{tag.name} {i < post?.tags?.length - 1 && ','}</Link></li>
+														))
+													}
 												</ul>
 											</div>
 											<div className="box-right">
 												<h4 className="share">Share This Article</h4>
 												<ul className="social-list d-flex align-items-center">
 													<li>
-														<Link href="/#" className="facebook"><i className="lab la-facebook-f" /></Link>
+														<a target="_blank" href={`https://www.facebook.com/sharer/sharer.php?u=${postUrl}`} className="facebook"><i className="lab la-facebook-f" /></a>
 													</li>
 													<li>
-														<Link href="/#" className="twitter"><i className="lab la-twitter" /></Link>
+														<a target="_blank" href={` https://twitter.com/intent/tweet?url=${postUrl}`} className="twitter"><i className="lab la-twitter" /></a>
 													</li>
 													<li>
-														<Link href="/#" className="linkedin"><i className="lab la-linkedin-in" /></Link>
+														<a target="_blank" href={`https://www.linkedin.com/cws/share?url=${postUrl}`} className="linkedin"><i className="lab la-linkedin-in" /></a>
 													</li>
 													<li>
-														<Link href="/#" className="instagram"><i className="lab la-instagram" /></Link>
+														<a target="_blank" href={`https://www.instagram.com/share?url=${postUrl}`} className="instagram"><i className="lab la-instagram" /></a>
 													</li>
 													<li>
-														<Link href="/#" className="pinterest"><i className="lab la-pinterest-p" /></Link>
+														<a target="_blank" href={`https://pinterest.com/pin/create/button/?url=${postUrl}&media=${post?.image}&description=${post?.title}`} className="pinterest"><i className="lab la-pinterest-p" /></a>
 													</li>
 												</ul>
 											</div>
@@ -153,95 +158,8 @@ export default async function SinglePost1({ params }) {
 									</div>
 								</div>
 								<div className="col-lg-4">
-									<div className="post-author-box text-center mb-40">
-										<div className="bg" />
-										<img src="/assets/img/post/post-author.png" alt="post" />
-										<h3 className="author">Hello, I'm James</h3>
-										<p>
-											Lorem ipsum dolor sit amet consectetur. Ut tellus suspendisse nulla aliquam. Risus
-											rutrum tellus eget ultrices pretium.
-										</p>
-										<Link href="/#" className="default-btn">About Me</Link>
-									</div>
-									<div className="trending-post-wrap">
-										<div className="section-heading mb-30">
-											<h3 className="section-title title-border"><span>Trending Posts</span></h3>
-										</div>
-										<div className="list-post-area list-2">
-											<div className="list-post-card">
-												<div className="post-img">
-													<Link href="/#"><img src="/assets/img/post/trending-post-1.jpg" alt="post" /></Link>
-												</div>
-												<div className="post-content">
-													<h3 className="title">
-														<Link href="/#">The Climate Shift in Allows Venice to Recover</Link>
-													</h3>
-													<span>July 29, 2024</span>
-												</div>
-											</div>
-											<div className="list-post-card">
-												<div className="post-img">
-													<Link href="/#"><img src="/assets/img/post/trending-post-2.jpg" alt="post" /></Link>
-												</div>
-												<div className="post-content">
-													<h3 className="title">
-														<Link href="/#">Football and Figure Skating Collide to The Crowd’s Delight</Link>
-													</h3>
-													<span>July 29, 2024</span>
-												</div>
-											</div>
-											<div className="list-post-card">
-												<div className="post-img">
-													<Link href="/#"><img src="/assets/img/post/trending-post-3.jpg" alt="post" /></Link>
-												</div>
-												<div className="post-content">
-													<h3 className="title">
-														<Link href="/#">Tips to Keep Cloud Storage Safe and Secure</Link>
-													</h3>
-													<span>July 29, 2024</span>
-												</div>
-											</div>
-											<div className="list-post-card">
-												<div className="post-img">
-													<Link href="/#"><img src="/assets/img/post/trending-post-4.jpg" alt="post" /></Link>
-												</div>
-												<div className="post-content">
-													<h3 className="title">
-														<Link href="/#">The Season Courses and any Salads wow!</Link>
-													</h3>
-													<span>July 29, 2024</span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div className="categorie-wrap">
-										<div className="section-heading mb-30">
-											<h3 className="section-title title-border"><span>Categories</span></h3>
-										</div>
-										<ul className="categorie-list">
-											<li>
-												<Link href="/single-post-1"><h4 className="list-title">Technology <span>(15)</span></h4><i className="las la-arrow-right" />
-												</Link></li><Link href="/single-post-1">
-											</Link><li className="active"><Link href="/single-post-1">
-											</Link><Link href="/single-post-1"><h4 className="list-title">Lifestyle <span>(24)</span></h4><i className="las la-arrow-right" /></Link>
-											</li>
-											<li>
-												<Link href="/single-post-1"><h4 className="list-title">Food <span>(29)</span></h4><i className="las la-arrow-right" /></Link>
-											</li>
-											<li>
-												<Link href="/single-post-1"><h4 className="list-title">Health Care <span>(17)</span></h4><i className="las la-arrow-right" /></Link>
-											</li>
-											<li>
-												<Link href="/single-post-1"><h4 className="list-title">Sport <span>(21)</span></h4><i className="las la-arrow-right" /></Link>
-											</li>
-											<li>
-												<Link href="/single-post-1"><h4 className="list-title">Travel <span>(11)</span></h4><i className="las la-arrow-right" /></Link>
-											</li>
-											<li>
-												<Link href="/single-post-1"><h4 className="list-title">Business <span>(30)</span></h4><i className="las la-arrow-right" /></Link>
-											</li>
-										</ul>
-									</div>
+									<TrendingPosts />
+									<Categorys />
 								</div>
 							</div>
 						</div>

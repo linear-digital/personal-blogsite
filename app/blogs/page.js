@@ -12,7 +12,7 @@ export const metadata = {
 }
 
 export default async function BlogDefault(context) {
-	const blogs = await fetcher({ path: `/blog/blogs?limit=5&page=${context.searchParams.page || 1}` });
+	const blogs = await fetcher({ path: `/blog/blogs?limit=5&page=${context.searchParams.page || 1}&query=${context.searchParams.query || ""}` });
 	return (
 		<>
 			<Layout breadcrumbTitle="title">

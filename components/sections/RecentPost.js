@@ -40,7 +40,7 @@ export default async function RecentPost() {
                                                     <li className="date">
                                                         {moment(item?.publishedAt).format('MMM DD, YYYY')}
                                                     </li>
-                                                    <li><i className="las la-comments" />5</li>
+                                                    <li><i className="las la-comments" />{item?.commentCount}</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -70,7 +70,7 @@ export default async function RecentPost() {
                                                     <li className="date">
                                                         {moment(item?.publishedAt).format('MMM DD, YYYY')}
                                                     </li>
-                                                    <li><i className="las la-comments" />5</li>
+                                                    <li><i className="las la-comments" />{item?.commentCount}</li>
                                                 </ul>
                                             </div>
                                         </div>

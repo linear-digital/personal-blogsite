@@ -19,28 +19,15 @@ export default function Contact() {
 										<div className="contact-left">
 											<div className="adress-wrap">
 												<div className="adress-box">
-													<h3 className="title">Office Adress</h3>
-													<ul className="adress-list">
-														<li>
-															<i className="las la-map-marker" /><span>The Business Centre 132, My Street Kingston, New York 12401
-																<strong>United States</strong></span>
-														</li>
-													</ul>
-												</div>
-												<div className="adress-box">
 													<h3 className="title">Call Information</h3>
 													<ul className="adress-list list-2">
 														<li>
 															<i className="las la-mobile" />Phone:
-															<Link href="/tel:+123456789">(+1) 234 567 89</Link>
-														</li>
-														<li>
-															<i className="las la-tty" />Tel:
-															<Link href="/tel:+15412343010">+1-541-234-3010</Link>
+															<Link href="/tel:+8801824692955">(+880) 182 469 2955</Link>
 														</li>
 														<li>
 															<i className="las la-envelope" />Email:
-															<Link href="/mailto:envato@gmail.com">envato@gmail.com</Link>
+															<Link href="/mailto:tamizrabbi@gmail.com">tamizrabbi@gmail.com</Link>
 														</li>
 													</ul>
 												</div>
@@ -49,8 +36,7 @@ export default function Contact() {
 										<div className="contact-form-wrap">
 											<h3 className="title">Get in Touch</h3>
 											<p>
-												Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-												doloremque laudantium, totam rem aperiam.
+												Your email address will not be published. Required fields are marked
 											</p>
 											<div className="contact-form">
 												<form action="contact.php" method="post" id="ajax_contact" className="form-horizontal">
@@ -87,7 +73,8 @@ export default function Contact() {
 								<div className="col-lg-6">
 									<div className="map-wrapper">
 										<div style={{ width: '100%' }}>
-											<iframe width="100%" height={840} frameBorder={0} scrolling="no" marginHeight={0} marginWidth={0} src="https://maps.google.com/maps?width=100%25&height=640&hl=en&q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&t=&z=14&ie=UTF8&iwloc=B&output=embed">&lt;a href="https://www.maps.ie/population/"&gt;Find Population on Map&lt;/a&gt;</iframe>
+										
+											<iframe width="100%" height={840} frameBorder={0} scrolling="no" marginHeight={0} marginWidth={0} src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116833.9730353436!2d90.33728796691412!3d23.780818635400582!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1740309688390!5m2!1sen!2sbd">&lt;a href="https://www.maps.ie/population/"&gt;Find Population on Map&lt;/a&gt;</iframe>
 										</div>
 									</div>
 								</div>
