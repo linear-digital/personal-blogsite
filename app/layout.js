@@ -66,6 +66,17 @@ export default function RootLayout({ children }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4236044300590126"
           crossOrigin="anonymous"
         ></script>
+		  script async src="https://www.googletagmanager.com/gtag/js?id=G-9R90BV9HK6"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-9R90BV9HK6');
+          `}
+        </script>
+		
       </head>
 			<body className={`${inter.variable} ${jost.variable}`}>
 				{/* ✅ Place AdSense meta and script inside body */}
