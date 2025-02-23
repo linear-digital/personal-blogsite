@@ -65,8 +65,6 @@ export default function RootLayout({ children }) {
 				{/* ✅ Place AdSense meta and script inside body */}
 				<Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4236044300590126"
 					crossOrigin="anonymous"></Script>
-
-				{children}
 				{children}
 			</body>
 		</html>

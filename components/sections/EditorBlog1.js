@@ -56,7 +56,7 @@ export default async function EditorBlog1() {
                         <div className="col-lg-4">
                             <div className="post-author-box text-center">
                                 <div className="bg" />
-                                <img src="/assets/img/post/post-author.png" alt="post" />
+                                <img src={publisher?.author.profilePicture} alt="post" />
                                 <h3 className="author">Hello, I'm Tamiz</h3>
                                 <p>
                                    {publisher?.descriptionSEO}

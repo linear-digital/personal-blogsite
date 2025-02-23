@@ -5,6 +5,7 @@ import Layout from "@/components/layout/Layout"
 import { fetcher } from "@/lib/dataFetcher"
 import fetchPublicationInfo from "@/lib/hasnode/publication"
 import { postImage, postLink } from "@/lib/postlink"
+import moment from "moment"
 import Link from "next/link"
 export default async function AuthorDetails(context) {
 	const publisher = await fetchPublicationInfo()
@@ -73,18 +74,21 @@ export default async function AuthorDetails(context) {
 															))
 														}
 														<h3 className="title">
-															<Link href="/single-post-1">How To Change The Icons For Your Favorite Apps On MacOS</Link>
+															<Link href={postLink(item)}>
+																{item?.title?.slice(0, 90)}
+															</Link>
 														</h3>
 														<ul className="post-list">
 															<li className="author">
-																by <span><Link href="/author-details">David Bin</Link></span>
+																by <span><Link href="/author-details">Tamiz Uddin </Link></span>
 															</li>
-															<li className="date">July 29, 2024</li>
-															<li><i className="las la-comments" />5</li>
+															<li className="date">
+																{moment(item?.publishedAt).format("MMM DD, YYYY")}
+															</li>
+															<li><i className="las la-comments" />{item.commentCount}</li>
 														</ul>
 														<p>
-															Lorem ipsum dolor sit amet consectetur. Tellus suspen any more at disse reasy
-															nulla aliquam.
+															{item?.brief?.slice(0, 150)}
 														</p>
 														<Link href="/single-post-1" className="news-post-btn"><i className="las la-arrow-right" /></Link>
 													</div>
