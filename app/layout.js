@@ -43,6 +43,7 @@ export async function generateMetadata() {
 		icons: {
 			icon: publication.ogMetaData.image, // ✅ Correct icon format
 		},
+		
 		openGraph: {
 			title: publication.title,
 			description: publication.descriptionSEO,
@@ -59,12 +60,15 @@ export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
 			<head>
-				<meta name="google-adsense-account" content="ca-pub-4236044300590126" />
-			</head>
+        <meta name="google-adsense-account" content="ca-pub-4236044300590126" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4236044300590126"
+          crossOrigin="anonymous"
+        ></script>
+      </head>
 			<body className={`${inter.variable} ${jost.variable}`}>
 				{/* ✅ Place AdSense meta and script inside body */}
-				<Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4236044300590126"
-					crossOrigin="anonymous"></Script>
 				{children}
 			</body>
 		</html>
