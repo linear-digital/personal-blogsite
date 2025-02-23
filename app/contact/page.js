@@ -1,6 +1,10 @@
 
 import Layout from "@/components/layout/Layout"
 import Link from "next/link"
+export const metadata = {
+	title: "GENZ IT Blogs | Contact Page",
+}
+
 export default function Contact() {
 	return (
 		<>

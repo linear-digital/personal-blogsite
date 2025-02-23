@@ -54,42 +54,12 @@ export default async function EditorBlog1() {
                             </div>
                         </div>
                         <div className="col-lg-4">
-                            <div className="section-heading mb-40">
-                                <h3 className="section-title title-border"><span>Follow Us</span></h3>
-                            </div>
-                            <div className="social-box-wrap">
-                                <div className="social-box facebook">
-                                    <Link href="/#"><i className="lab la-facebook-square" /></Link>
-                                    <h4 className="title"><Link href="/#">Facebook</Link> <span>23k Likes</span></h4>
-                                </div>
-                                <div className="social-box twitter">
-                                    <Link href="/#" className="icon"><i className="lab la-twitter" /></Link>
-                                    <h4 className="title"><Link href="/#">Twitter</Link> <span>56k Followers</span></h4>
-                                </div>
-                                <div className="social-box youtube">
-                                    <Link href="/#" className="icon"><i className="lab la-youtube" /></Link>
-                                    <h4 className="title"><Link href="/#">Youtube</Link> <span>56k Subscribe</span></h4>
-                                </div>
-                                <div className="social-box spotify">
-                                    <Link href="/#" className="icon"><i className="lab la-spotify" /></Link>
-                                    <h4 className="title"><Link href="/#">Spotify</Link> <span>14k Followers</span></h4>
-                                </div>
-                                <div className="social-box insta">
-                                    <Link href="/#" className="icon"><i className="lab la-instagram" /></Link>
-                                    <h4 className="title"><Link href="/#">Instagram</Link> <span>5m Followers</span></h4>
-                                </div>
-                                <div className="social-box pinterest">
-                                    <Link href="/#" className="icon"><i className="lab la-pinterest-p" /></Link>
-                                    <h4 className="title"><Link href="/#">Pinterest</Link> <span>59k Followers</span></h4>
-                                </div>
-                            </div>
                             <div className="post-author-box text-center">
                                 <div className="bg" />
                                 <img src="/assets/img/post/post-author.png" alt="post" />
-                                <h3 className="author">Hello, I'm James</h3>
+                                <h3 className="author">Hello, I'm Tamiz</h3>
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur. Ut tellus suspendisse nulla aliquam. Risus
-                                    rutrum tellus eget ultrices pretium.
+                                   {publisher?.descriptionSEO}
                                 </p>
                                 <Link href="/author-details" className="default-btn">About Me</Link>
                             </div>

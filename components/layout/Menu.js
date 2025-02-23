@@ -13,9 +13,6 @@ export default function Menu({ }) {
 				<li className={pathname === "/blogs" ? "active" : ""}>
 					<Link href="/blogs">All Blogs</Link>
 				</li>
-				<li className={pathname === "/about" ? "active" : ""}>
-					<Link href="/about">About Us</Link>
-				</li>
 				<li className={pathname === "/contact" ? "active" : ""}>
 					<Link href="/contact">Contact</Link>
 				</li>

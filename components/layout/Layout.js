@@ -72,7 +72,7 @@ export default function Layout({ headerStyle, footerStyle, breadcrumbTitle, chil
 			{children}
 
 			{/* <NewsLetter1 /> */}
-			< Footer1 />
+			<Footer1 />
 			<BackToTop target="#top" />
 			<AddClassBody />
 		</QueryClientProvider>

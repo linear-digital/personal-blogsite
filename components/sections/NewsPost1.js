@@ -7,8 +7,8 @@ import LetestPostCard from "../Card/LetestPostCard";
 import { useEffect, useState } from "react";
 import { Skeleton } from "antd";
 import { useRouter } from "next/navigation";
-import { postImage, postLink } from "@/lib/postlink";
-import moment from "moment";
+import TrendingPosts from '../Card/TrendingPosts';
+import Categorys from '../Card/Categorys';
 export default function NewsPost1() {
     const [page, setPage] = useState(1);
     const { data, isLoading } = useQuery({
@@ -18,24 +18,6 @@ export default function NewsPost1() {
             return blogs;
         },
     });
-    const { data: tranding } = useQuery({
-        queryKey: ["letest-blogs", page],
-        queryFn: async () => {
-            const blogs = await fetcher({ path: `/blog/blogs?limit=6&trending=true` });
-            return blogs;
-        },
-    });
-    const { data: tags } = useQuery({
-        queryKey: ["tags"],
-        queryFn: async () => {
-            const blogs = await fetcher({ path: `/blog/tags` });
-            return blogs;
-        },
-    });
-    const router = useRouter();
-    useEffect(() => {
-        router.push("/#letest");
-    }, [page]);
     return (
         <>
             <section className="news-post-area padding pt-0" id="letest">
@@ -100,58 +82,8 @@ export default function NewsPost1() {
                             </div>
                         </div>
                         <div className="col-lg-4">
-                            <div className="trending-post-wrap">
-                                <div className="section-heading mb-30">
-                                    <h3 className="section-title title-border">
-                                        <span>Trending Posts</span>
-                                    </h3>
-                                </div>
-                                <div className="list-post-area list-2">
-                                    {
-                                        tranding?.data?.map((item, i) => (
-                                            <div className="list-post-card">
-                                                <div className="post-img">
-                                                    <Link href={postLink(item)}>
-                                                        <img
-                                                            src={postImage(item)}
-                                                            alt="post"
-                                                        />
-                                                    </Link>
-                                                </div>
-                                                <div className="post-content">
-                                                    <h3 className="title">
-                                                        <Link href={postLink(item)}>
-                                                            {item?.title?.slice(0, 50)}...
-                                                        </Link>
-                                                    </h3>
-                                                    <span>{moment(item?.publishedAt).format("MMM DD, YYYY")}</span>
-                                                </div>
-                                            </div>
-                                        ))
-                                    }
-                                </div>
-                            </div>
-                            <div className="categorie-wrap">
-                                <div className="section-heading mb-30">
-                                    <h3 className="section-title title-border">
-                                        <span>Categories</span>
-                                    </h3>
-                                </div>
-                                <ul className="categorie-list">
-                                    {
-                                        tags?.slice(0, 8)?.map((item, i) => (
-                                            <li key={i}>
-                                                <Link href={`/category/${item?.slug}`} >
-                                                    <h4 className="list-title">
-                                                        {item?.name} <span>({item?.count})</span>
-                                                    </h4>
-                                                    <i className="las la-arrow-right" />
-                                                </Link>
-                                            </li>
-                                        ))
-                                    }
-                                </ul>
-                            </div>
+                            <TrendingPosts />
+                            <Categorys />
                         </div>
                     </div>
                 </div>

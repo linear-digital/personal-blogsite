@@ -1,7 +1,15 @@
 
+import Categorys from "@/components/Card/Categorys"
+import TrendingPosts from "@/components/Card/TrendingPosts"
 import Layout from "@/components/layout/Layout"
+import { fetcher } from "@/lib/dataFetcher"
+import fetchPublicationInfo from "@/lib/hasnode/publication"
+import { postImage, postLink } from "@/lib/postlink"
 import Link from "next/link"
-export default function AuthorDetails() {
+export default async function AuthorDetails(context) {
+	const publisher = await fetchPublicationInfo()
+	const page = context.searchParams.page || 1
+	const blogs = await fetcher({ path: `/blog/blogs?limit=5&page=${page}` })
 	return (
 		<>
 			<Layout breadcrumbTitle="title">
@@ -11,15 +19,13 @@ export default function AuthorDetails() {
 						<div className="container">
 							<div className="author-details-box">
 								<div className="author-img">
-									<img src="/assets/img/images/author-img.jpg" alt="author" />
+									<img src={publisher.author.profilePicture} alt="author" />
 								</div>
 								<div className="author-info">
-									<h3 className="name">David Bin</h3>
-									<span className="prof">Posty Contributor</span>
+									<h3 className="name">{publisher?.author.name}</h3>
+									<span className="prof">Full Stack Developer</span>
 									<p>
-										Lorem ipsum dolor sit amet consectetur. Ut tellus suspendisse nulla aliquam. Risus rutrum
-										tellus eget ultrices pretium nisi amet facilisis. Augue eu vulputate tortor egestas cursus
-										vivamus. Commodo dictum iaculis eget massa phasellus ultrices nunc dignissim.
+										{publisher?.descriptionSEO}
 									</p>
 									<div className="author-social d-flex align-items-center">
 										<h4 className="follow">Follow:</h4>
@@ -54,269 +60,71 @@ export default function AuthorDetails() {
 										<div className="section-heading mb-40">
 											<h3 className="section-title title-border"><span>Latest Posts</span></h3>
 										</div>
-										<div className="post-card news-post">
-											<div className="post-thumb">
-												<Link href="/single-post-1"><img src="/assets/img/post/news-post-1.jpg" alt="post" /></Link>
-											</div>
-											<div className="post-content">
-												<Link href="/single-post-1" className="card-btn bg-blue">Tech</Link>
-												<h3 className="title">
-													<Link href="/single-post-1">How To Change The Icons For Your Favorite Apps On MacOS</Link>
-												</h3>
-												<ul className="post-list">
-													<li className="author">
-														by <span><Link href="/author-details">David Bin</Link></span>
-													</li>
-													<li className="date">July 29, 2024</li>
-													<li><i className="las la-comments" />5</li>
-												</ul>
-												<p>
-													Lorem ipsum dolor sit amet consectetur. Tellus suspen any more at disse reasy
-													nulla aliquam.
-												</p>
-												<Link href="/single-post-1" className="news-post-btn"><i className="las la-arrow-right" /></Link>
-											</div>
-										</div>
-										<div className="post-card news-post">
-											<div className="post-thumb">
-												<Link href="/single-post-1"><img src="/assets/img/post/news-post-2.jpg" alt="post" /></Link>
-											</div>
-											<div className="post-content">
-												<Link href="/single-post-1" className="card-btn bg-blue-light">Business</Link>
-												<h3 className="title">
-													<Link href="/single-post-1">How Product Designers Can Gamification for any Good.</Link>
-												</h3>
-												<ul className="post-list">
-													<li className="author">
-														by <span><Link href="/author-details">David Bin</Link></span>
-													</li>
-													<li className="date">July 29, 2024</li>
-													<li><i className="las la-comments" />5</li>
-												</ul>
-												<p>
-													Lorem ipsum dolor sit amet consectetur. Tellus suspen any more at disse reasy
-													nulla aliquam.
-												</p>
-												<Link href="/single-post-1" className="news-post-btn"><i className="las la-arrow-right" /></Link>
-											</div>
-										</div>
-										<div className="post-card news-post">
-											<div className="post-thumb">
-												<Link href="/single-post-1"><img src="/assets/img/post/news-post-3.jpg" alt="post" /></Link>
-											</div>
-											<div className="post-content">
-												<Link href="/single-post-1" className="card-btn bg-green">Sports</Link>
-												<h3 className="title">
-													<Link href="/single-post-1">Classic Training Programs for Professional NFL Players</Link>
-												</h3>
-												<ul className="post-list">
-													<li className="author">
-														by <span><Link href="/author-details">David Bin</Link></span>
-													</li>
-													<li className="date">July 29, 2024</li>
-													<li><i className="las la-comments" />5</li>
-												</ul>
-												<p>
-													Lorem ipsum dolor sit amet consectetur. Tellus suspen any more at disse reasy
-													nulla aliquam.
-												</p>
-												<Link href="/single-post-1" className="news-post-btn"><i className="las la-arrow-right" /></Link>
-											</div>
-										</div>
-										<div className="post-card news-post">
-											<div className="post-thumb">
-												<Link href="/single-post-1"><img src="/assets/img/post/news-post-4.jpg" alt="post" /></Link>
-											</div>
-											<div className="post-content">
-												<Link href="/single-post-1" className="card-btn bg-yellow">Food</Link>
-												<h3 className="title">
-													<Link href="/single-post-1">The 6 Best &amp; Worst Foods for Your Skin and Health</Link>
-												</h3>
-												<ul className="post-list">
-													<li className="author">
-														by <span><Link href="/author-details">David Bin</Link></span>
-													</li>
-													<li className="date">July 29, 2024</li>
-													<li><i className="las la-comments" />5</li>
-												</ul>
-												<p>
-													Lorem ipsum dolor sit amet consectetur. Tellus suspen any more at disse reasy
-													nulla aliquam.
-												</p>
-												<Link href="/single-post-1" className="news-post-btn"><i className="las la-arrow-right" /></Link>
-											</div>
-										</div>
-										<div className="post-card news-post">
-											<div className="post-thumb">
-												<Link href="/single-post-1"><img src="/assets/img/post/news-post-5.jpg" alt="post" /></Link>
-											</div>
-											<div className="post-content">
-												<Link href="/single-post-1" className="card-btn bg-pink">Lifestyle</Link>
-												<h3 className="title">
-													<Link href="/single-post-1">Navigation System Doesn Work in Space? We’ll See works.</Link>
-												</h3>
-												<ul className="post-list">
-													<li className="author">
-														by <span><Link href="/author-details">David Bin</Link></span>
-													</li>
-													<li className="date">July 29, 2024</li>
-													<li><i className="las la-comments" />5</li>
-												</ul>
-												<p>
-													Lorem ipsum dolor sit amet consectetur. Tellus suspen any more at disse reasy
-													nulla aliquam.
-												</p>
-												<Link href="/single-post-1" className="news-post-btn"><i className="las la-arrow-right" /></Link>
-											</div>
-										</div>
-										<div className="post-card news-post">
-											<div className="post-thumb">
-												<Link href="/single-post-1"><img src="/assets/img/post/news-post-12.jpg" alt="post" /></Link>
-											</div>
-											<div className="post-content">
-												<Link href="/single-post-1" className="card-btn bg-pink">Lifestyle</Link>
-												<h3 className="title">
-													<Link href="/single-post-1">Navigation System Doesn Work in Space? We’ll See works.</Link>
-												</h3>
-												<ul className="post-list">
-													<li className="author">
-														by <span><Link href="/author-details">David Bin</Link></span>
-													</li>
-													<li className="date">July 29, 2024</li>
-													<li><i className="las la-comments" />5</li>
-												</ul>
-												<p>
-													Lorem ipsum dolor sit amet consectetur. Tellus suspen any more at disse reasy
-													nulla aliquam.
-												</p>
-												<Link href="/single-post-1" className="news-post-btn"><i className="las la-arrow-right" /></Link>
-											</div>
-										</div>
-										<div className="post-card news-post">
-											<div className="post-thumb">
-												<Link href="/single-post-1"><img src="/assets/img/post/news-post-11.jpg" alt="post" /></Link>
-											</div>
-											<div className="post-content">
-												<Link href="/single-post-1" className="card-btn bg-pink">Lifestyle</Link>
-												<h3 className="title">
-													<Link href="/single-post-1">Navigation System Doesn Work in Space? We’ll See works.</Link>
-												</h3>
-												<ul className="post-list">
-													<li className="author">
-														by <span><Link href="/author-details">David Bin</Link></span>
-													</li>
-													<li className="date">July 29, 2024</li>
-													<li><i className="las la-comments" />5</li>
-												</ul>
-												<p>
-													Lorem ipsum dolor sit amet consectetur. Tellus suspen any more at disse reasy
-													nulla aliquam.
-												</p>
-												<Link href="/single-post-1" className="news-post-btn"><i className="las la-arrow-right" /></Link>
-											</div>
-										</div>
+										{
+											blogs?.data?.map((item, i) => (
+												<div className="post-card news-post" key={i}>
+													<div className="post-thumb">
+														<Link href={postLink(item)}><img src={postImage(item)} alt="post" /></Link>
+													</div>
+													<div className="post-content">
+														{
+															item?.tags?.slice(0, 2).map((tag, i) => (
+																<Link key={i} href={`/category/${tag.slug}`} className="card-btn bg-blue me-2">{tag.name}</Link>
+															))
+														}
+														<h3 className="title">
+															<Link href="/single-post-1">How To Change The Icons For Your Favorite Apps On MacOS</Link>
+														</h3>
+														<ul className="post-list">
+															<li className="author">
+																by <span><Link href="/author-details">David Bin</Link></span>
+															</li>
+															<li className="date">July 29, 2024</li>
+															<li><i className="las la-comments" />5</li>
+														</ul>
+														<p>
+															Lorem ipsum dolor sit amet consectetur. Tellus suspen any more at disse reasy
+															nulla aliquam.
+														</p>
+														<Link href="/single-post-1" className="news-post-btn"><i className="las la-arrow-right" /></Link>
+													</div>
+												</div>
+											))
+										}
+
 										<div className="post-pagination">
 											<ul className="pagination-list">
-												<li><Link href="/single-post-1">1</Link></li>
-												<li className="active"><Link href="/single-post-1">2</Link></li>
-												<li><Link href="/single-post-1">3</Link></li>
+												{Array.from({
+													length:
+														Math.ceil(blogs?.total / 5) > 8
+															? 8
+															: Math.ceil(blogs?.total / 5),
+												}).map((item, i) => (
+													<li key={i}>
+														<Link
+															href={`/author-details?page=${i + 1}`}
+															className={page === i + 1 ? "active" : ""}
+														>
+															<span>{i + 1}</span>
+														</Link>
+													</li>
+												))}
 											</ul>
-											<div className="pagination-right">
-												<Link href="/single-post-1"><i className="las la-angle-right" /></Link>
-											</div>
 										</div>
 									</div>
 								</div>
 								<div className="col-lg-4">
 									<div className="post-author-box text-center mb-40">
 										<div className="bg" />
-										<img src="/assets/img/post/post-author.png" alt="post" />
-										<h3 className="author">Hello, I'm James</h3>
+										<img src={publisher.author.profilePicture} alt="post" />
+										<h3 className="author">Hello, I'm Tamiz</h3>
 										<p>
-											Lorem ipsum dolor sit amet consectetur. Ut tellus suspendisse nulla aliquam. Risus
-											rutrum tellus eget ultrices pretium.
+											{publisher?.descriptionSEO}
 										</p>
 										<Link href="/author-details" className="default-btn">About Me</Link>
 									</div>
-									<div className="trending-post-wrap">
-										<div className="section-heading mb-30">
-											<h3 className="section-title title-border"><span>Trending Posts</span></h3>
-										</div>
-										<div className="list-post-area list-2">
-											<div className="list-post-card">
-												<div className="post-img">
-													<Link href="/single-post-1"><img src="/assets/img/post/trending-post-1.jpg" alt="post" /></Link>
-												</div>
-												<div className="post-content">
-													<h3 className="title">
-														<Link href="/single-post-1">The Climate Shift in Allows Venice to Recover</Link>
-													</h3>
-													<span>July 29, 2024</span>
-												</div>
-											</div>
-											<div className="list-post-card">
-												<div className="post-img">
-													<Link href="/single-post-1"><img src="/assets/img/post/trending-post-2.jpg" alt="post" /></Link>
-												</div>
-												<div className="post-content">
-													<h3 className="title">
-														<Link href="/single-post-1">Football and Figure Skating Collide to The Crowd’s Delight</Link>
-													</h3>
-													<span>July 29, 2024</span>
-												</div>
-											</div>
-											<div className="list-post-card">
-												<div className="post-img">
-													<Link href="/single-post-1"><img src="/assets/img/post/trending-post-3.jpg" alt="post" /></Link>
-												</div>
-												<div className="post-content">
-													<h3 className="title">
-														<Link href="/single-post-1">Tips to Keep Cloud Storage Safe and Secure</Link>
-													</h3>
-													<span>July 29, 2024</span>
-												</div>
-											</div>
-											<div className="list-post-card">
-												<div className="post-img">
-													<Link href="/single-post-1"><img src="/assets/img/post/trending-post-4.jpg" alt="post" /></Link>
-												</div>
-												<div className="post-content">
-													<h3 className="title">
-														<Link href="/single-post-1">The Season Courses and any Salads wow!</Link>
-													</h3>
-													<span>July 29, 2024</span>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div className="categorie-wrap">
-										<div className="section-heading mb-30">
-											<h3 className="section-title title-border"><span>Categories</span></h3>
-										</div>
-										<ul className="categorie-list">
-											<li>
-												<Link href="/single-post-1"><h4 className="list-title">Technology <span>(15)</span></h4><i className="las la-arrow-right" />
-												</Link></li><Link href="/single-post-1">
-											</Link><li className="active"><Link href="/single-post-1">
-											</Link><Link href="/single-post-1"><h4 className="list-title">Lifestyle <span>(24)</span></h4><i className="las la-arrow-right" /></Link>
-											</li>
-											<li>
-												<Link href="/single-post-1"><h4 className="list-title">Food <span>(29)</span></h4><i className="las la-arrow-right" /></Link>
-											</li>
-											<li>
-												<Link href="/single-post-1"><h4 className="list-title">Health Care <span>(17)</span></h4><i className="las la-arrow-right" /></Link>
-											</li>
-											<li>
-												<Link href="/single-post-1"><h4 className="list-title">Sport <span>(21)</span></h4><i className="las la-arrow-right" /></Link>
-											</li>
-											<li>
-												<Link href="/single-post-1"><h4 className="list-title">Travel <span>(11)</span></h4><i className="las la-arrow-right" /></Link>
-											</li>
-											<li>
-												<Link href="/single-post-1"><h4 className="list-title">Business <span>(30)</span></h4><i className="las la-arrow-right" /></Link>
-											</li>
-										</ul>
-									</div>
+									<TrendingPosts />
+									<Categorys />
 								</div>
 							</div>
 						</div>

@@ -8,7 +8,7 @@ export default function FashionBlog1() {
                 <div className="container">
                     <div className="top-area mb-40 title-border">
                         <div className="section-heading">
-                            <h3 className="section-title"><span className="bg-grey-2">Most Read</span></h3>
+                            <h3 className="section-title"><span className="bg-grey-2">Movie Reviews</span></h3>
                         </div>
                         <div className="right-btn">
                             <Link href="/blog-layout-1" className="default-btn">See More</Link>

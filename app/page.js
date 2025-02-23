@@ -30,9 +30,9 @@ export default async function Home() {
 				<Categories />
 				<NewsPost1 />
 				{/* <Watch /> */}
-				<FashionBlog1 />
-				<Cta2 />
-				<HeroPost3 />
+				{/* <FashionBlog1 /> */}
+				{/* <Cta2 /> */}
+				{/* <HeroPost3 /> */}
 				<Subscribe1 />
 				<RecentPost />
 			</Layout>

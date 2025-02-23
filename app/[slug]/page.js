@@ -7,6 +7,49 @@ import Link from "next/link"
 import PostComent from "@/components/Card/PostComent"
 import Layout from "@/components/layout/Layout"
 import { fetcher } from "@/lib/dataFetcher"
+
+
+export const generateMetadata = async ({
+	params,
+}) => {
+	const { slug } = await params;
+
+	try {
+		const post = await fetcher({ path: `/blog/single/${slug}` })
+
+		const title = post.seo?.title || "GENZ IT Blogs"; // Use optional chaining and default value
+		const description =
+			post.seo?.description ||
+			"A blog for the next generation of IT professionals.";
+		const imageUrl = post.coverImage?.url || "/no-image.png"; // Default image URL
+
+		return {
+			title,
+			description,
+			canonical: post.canonicalUrl,
+			keywords: post.tags.map((tag) => tag.name),
+			openGraph: {
+				title,
+				description,
+				images: [imageUrl],
+				type: "article",
+			},
+			twitter: {
+				card: "summary_large_image",
+				title,
+				description,
+				images: [imageUrl],
+			},
+		};
+	} catch (error) {
+		console.error(`Error generating metadata for slug ${slug}:`, error);
+		return {
+			title: "GENZ IT Blogs",
+			description: "A blog for the next generation of IT professionals.",
+		};
+	}
+};
+
 export default async function SinglePost1({ params }) {
 	const { slug } = await params
 	const ipRes = await fetch('https://api64.ipify.org/?format=json')
@@ -106,7 +149,7 @@ export default async function SinglePost1({ params }) {
 												</ul>
 											</div>
 										</div>
-										<PostComent post={post}/>
+										<PostComent post={post} />
 									</div>
 								</div>
 								<div className="col-lg-4">

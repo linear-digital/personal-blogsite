@@ -1,7 +1,7 @@
 import Link from "next/link"
 import ThemeSwitch from "../elements/ThemeSwitch"
 import Menu from "./Menu"
-
+import SocialIcons from "@/components/Card/SocialIcons"
 export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSidebar, handleSidebar, isSearch, handleSearch }) {
 	return (
 		<>
@@ -10,23 +10,7 @@ export default function Header1({ scroll, isMobileMenu, handleMobileMenu, isSide
 					<div className="container">
 						<div className="mid-header-wrap">
 							<div className="mid-header-left">
-								<ul className="header-social">
-									<li>
-										<Link href="/#" className="facebook"><i className="lab la-facebook-f" /></Link>
-									</li>
-									<li>
-										<Link href="/#" className="twitter"><i className="lab la-twitter" /></Link>
-									</li>
-									<li>
-										<Link href="/#" className="instagram"><i className="lab la-instagram" /></Link>
-									</li>
-									<li>
-										<Link href="/#" className="linkedin"><i className="lab la-linkedin-in" /></Link>
-									</li>
-									<li>
-										<Link href="/#" className="pinterest"><i className="lab la-pinterest-p" /></Link>
-									</li>
-								</ul>
+								<SocialIcons />
 							</div>
 							<div className="site-logo">
 								<Link href="/">

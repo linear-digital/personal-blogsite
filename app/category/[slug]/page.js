@@ -8,11 +8,13 @@ import moment from "moment";
 import Link from "next/link"
 
 export const metadata = {
-	title: "GENZ IT Blogs | Blogs Page",
+	title: "GENZ IT Blogs | Category Page",
 }
 
+
+
 export default async function BlogDefault(context) {
-	const blogs = await fetcher({ path: `/blog/blogs?limit=5&page=${context.searchParams.page || 1}` });
+	const blogs = await fetcher({ path: `/blog/blogs?limit=5&page=${context.searchParams.page || 1}&category=${context.params.slug}` });
 	return (
 		<>
 			<Layout breadcrumbTitle="title">
@@ -31,7 +33,7 @@ export default async function BlogDefault(context) {
 												<div className="post-content">
 													{
 														item?.tags?.slice(0, 2).map((tag, i) => (
-															<Link href={`/category/${tag.slug}`} className="card-btn bg-blue me-2">{tag.name}</Link>
+															<Link key={i} href={`/category/${tag.slug}`} className="card-btn bg-blue me-2">{tag.name}</Link>
 														))
 													}
 													<h3 className="title">
