@@ -24,7 +24,6 @@ export const generateMetadata = async ({
 			post.seo?.description ||
 			"A blog for the next generation of IT professionals.";
 		const imageUrl = post.coverImage?.url || "/no-image.png"; // Default image URL
-
 		return {
 			title,
 			description,
@@ -128,7 +127,7 @@ export default async function SinglePost1({ params }) {
 												<ul>
 													{
 														post?.tags?.map((tag, i) => (
-															<li><Link href={`/category/${tag.slug}`}>{tag.name} {i < post?.tags?.length - 1 && ','}</Link></li>
+															<li key={i}><Link href={`/category/${tag.slug}`}>{tag.name} {i < post?.tags?.length - 1 && ','}</Link></li>
 														))
 													}
 												</ul>
