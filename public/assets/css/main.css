@@ -2526,7 +2526,7 @@ header-1 .site-logo img {
 }
 
 .editor-post .post-thumb img {
-    height: 160px;
+    height: 170px;
 }
 
 .editor-post .post-content .title {
@@ -2720,7 +2720,9 @@ header-1 .site-logo img {
 }
 
 @media (max-width: 1200px) {
-
+    .editor-post .post-thumb img {
+        height: 250px;
+    }
     .editor-post-wrap {
         grid-template-columns: repeat(2, 1fr);
     }

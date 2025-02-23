@@ -6,7 +6,7 @@ import React from "react";
 const TopPost = ({ post }) => {
   return (
     <div className="post-card top-post mb-25">
-      <div className="post-thumb">
+      <div className="post-thumb overlay-cover">
         <Link href={postLink(post)}>
           <img src={postImage(post)} alt={post.title} />
         </Link>
@@ -21,15 +21,15 @@ const TopPost = ({ post }) => {
             {tag.name}
           </Link>
         ))}
-        <h3 className="title">
+        <h3 className="title bg-black p-1">
           <Link href={postLink(post)}>
             {post?.title?.slice(0, 60)}
           </Link>
         </h3>
-        <ul className="post-list">
-          <li className="author">
+        <ul className="post-list bg-black p-1">
+          <li className="author ">
             by{" "}
-            <span>
+            <span className="">
               <Link href={'/author-details'}>Tamiz Uddin</Link>
             </span>
           </li>
