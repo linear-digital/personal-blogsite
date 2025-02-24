@@ -77,8 +77,6 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${inter.variable} ${jost.variable}`}>
         {children}
-		<SpeedInsights />
-		<Analytics />
       </body>
     </html>
   );
