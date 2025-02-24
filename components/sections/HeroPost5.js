@@ -6,7 +6,7 @@ import { postImage, postLink } from '@/lib/postlink'
 import moment from 'moment'
 
 export default async function HeroPost5() {
-    const posts = await fetcher({ path: "/blog?limit=5" })
+    const posts = await fetcher({ path: "/blog?limit=5&skip=5" })
     return (
         <>
             <section className="hero-post-3 bg-grey-2 padding">

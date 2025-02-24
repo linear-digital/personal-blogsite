@@ -40,7 +40,7 @@ export async function generateMetadata() {
 		title: publication.title,
 		description: publication.descriptionSEO,
 		icons: {
-			icon: publication.ogMetaData.image, // ✅ Correct icon format
+			icon: '/favicon.ico',
 		},
 		
 		openGraph: {
