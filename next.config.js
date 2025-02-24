@@ -7,9 +7,6 @@ const nextConfig = {
             "res.cloudinary.com"
         ],
     },
-    experimental: {
-        missingSuspenseWithCSRBailout: false,
-    },
     async rewrites() {
         return [
             { source: "/sitemap.xml", destination: "/sitemap" },
