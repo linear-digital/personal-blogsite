@@ -68,7 +68,11 @@ export default async function SinglePost1({ params }) {
 							<div className="top-content">
 								<div className="post-card single-card">
 									<div className="post-content">
-										<Link href="/#" className="card-btn bg-green">Tech</Link>
+										{
+											post?.tags?.slice(0, 3).map((tag, i) => (
+												<Link href={`/category/${tag.slug}`} key={i} className="card-btn bg-green me-2">{tag.name}</Link>
+											))
+										}
 										<h3 className="title">
 											{post?.title}
 										</h3>
@@ -89,19 +93,19 @@ export default async function SinglePost1({ params }) {
 									<span>Share:</span>
 									<ul className="social-list d-flex align-items-center">
 										<li>
-											<Link href="/#" className="facebook"><i className="lab la-facebook-f" /></Link>
+											<a target="_blank" href={`https://www.facebook.com/sharer/sharer.php?u=${postUrl}`} className="facebook"><i className="lab la-facebook-f" /></a>
 										</li>
 										<li>
-											<Link href="/#" className="twitter"><i className="lab la-twitter" /></Link>
+											<a target="_blank" href={` https://twitter.com/intent/tweet?url=${postUrl}`} className="twitter"><i className="lab la-twitter" /></a>
 										</li>
 										<li>
-											<Link href="/#" className="linkedin"><i className="lab la-linkedin-in" /></Link>
+											<a target="_blank" href={`https://www.linkedin.com/cws/share?url=${postUrl}`} className="linkedin"><i className="lab la-linkedin-in" /></a>
 										</li>
 										<li>
-											<Link href="/#" className="instagram"><i className="lab la-instagram" /></Link>
+											<a target="_blank" href={`https://www.instagram.com/share?url=${postUrl}`} className="instagram"><i className="lab la-instagram" /></a>
 										</li>
 										<li>
-											<Link href="/#" className="pinterest"><i className="lab la-pinterest-p" /></Link>
+											<a target="_blank" href={`https://pinterest.com/pin/create/button/?url=${postUrl}&media=${post?.image}&description=${post?.title}`} className="pinterest"><i className="lab la-pinterest-p" /></a>
 										</li>
 									</ul>
 								</div>
