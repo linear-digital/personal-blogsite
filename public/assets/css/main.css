@@ -2016,6 +2016,9 @@ header-1 .site-logo img {
     row-gap: 10px;
     text-align: center;
   }
+  .hero-text a{
+    font-size: 12px;
+  }
 
   .post-area-right {
     grid-template-columns: 1fr;

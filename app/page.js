@@ -22,8 +22,8 @@ export default async function Home() {
 			<Layout headerStyle={1} footerStyle={1}>
 				<News />
 				{/* <Trending1 /> */}
-				<HeroPost5 />
 				<EditorBlog1 blogs={blogs} />
+				<HeroPost5 />
 				{/* <Cta1 /> */}
 
 				{/* <HeroPost2 /> */}

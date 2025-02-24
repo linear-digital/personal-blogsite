@@ -1,5 +1,4 @@
 import { fetcher } from "@/lib/dataFetcher";
-import { fetchHashnodeBlogs } from "@/lib/hasnode";
 
 export default async function sitemap() {
     // Fetch dynamic routes from your database or CMS
@@ -7,7 +6,7 @@ export default async function sitemap() {
 
     // Generate sitemap entries
     const postEntries = posts.map((post) => ({
-        url: `https://genzit.xyz/${post._id}`,
+        url: `https://genzit.xyz/${post.slug}`,
         lastModified: post.updatedAt,
         changeFrequency: "weekly",
         priority: 0.7,

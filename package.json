@@ -10,6 +10,8 @@
     },
     "dependencies": {
         "@tanstack/react-query": "^5.66.9",
+        "@vercel/analytics": "^1.5.0",
+        "@vercel/speed-insights": "^1.2.0",
         "antd": "^5.24.1",
         "graphql-request": "^7.1.2",
         "moment": "^2.30.1",

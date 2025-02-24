@@ -28,7 +28,7 @@ export default async function BlogDefault(context) {
 										blogs?.data?.map((item, i) => (
 											<div className="post-card blog-default-card" key={i}>
 												<div className="post-thumb">
-													<Link href={`/${item?._id}`}><img src={postImage(item)} alt={item?.title} /></Link>
+													<Link href={`/${item?.slug}`}><img src={postImage(item)} alt={item?.title} /></Link>
 												</div>
 												<div className="post-content">
 													{
@@ -37,7 +37,7 @@ export default async function BlogDefault(context) {
 														))
 													}
 													<h3 className="title">
-														<Link href={`/${item?._id}`}>
+														<Link href={`/${item?.slug}`}>
 															{item?.title}
 														</Link>
 													</h3>
@@ -53,7 +53,7 @@ export default async function BlogDefault(context) {
 													<p>
 														{item?.brief}
 													</p>
-													<Link href={`/${item?._id}`} className="news-post-btn"><i className="las la-arrow-right" /></Link>
+													<Link href={`/${item?.slug}`} className="news-post-btn"><i className="las la-arrow-right" /></Link>
 												</div>
 											</div>
 

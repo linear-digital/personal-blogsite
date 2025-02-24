@@ -57,7 +57,7 @@ export default async function SinglePost1({ params }) {
 	const ip = await ipRes.json()
 	const ipAdress = ip.ip
 	const post = await fetcher({ path: `/blog/single/${slug}?ip=${ipAdress}` })
-	const postUrl = `https://genzit.xyz/${post._id}`
+	const postUrl = `https://genzit.xyz/${post.slug}`
 	return (
 		<>
 			<Layout breadcrumbTitle="title">

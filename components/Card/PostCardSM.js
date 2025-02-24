@@ -7,7 +7,7 @@ const PostCardSM = ({ blogs }) => {
     return (
         <div className="post-card editor-post">
             <div className="post-thumb">
-                <Link href={`/${blogs?._id}`}><img src={blogs?.coverImage?.url} alt={blogs?.title} /></Link>
+                <Link href={`/${blogs?.slug}`}><img src={blogs?.coverImage?.url} alt={blogs?.title} /></Link>
             </div>
             <div className="post-content">
                 {
@@ -16,7 +16,7 @@ const PostCardSM = ({ blogs }) => {
                     ))
                 }
                 <h3 className="title" >
-                    <Link href={`/${blogs?._id}`}>{blogs?.title?.slice(0, 50)}..</Link>
+                    <Link href={`/${blogs?.slug}`}>{blogs?.title?.slice(0, 50)}..</Link>
                 </h3>
                 <ul className="post-list">
                     <li className="author">

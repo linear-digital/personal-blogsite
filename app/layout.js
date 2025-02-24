@@ -9,9 +9,8 @@ import "/public/assets/css/posty-color.css"
 import "/public/assets/css/swiper.min.css"
 import "/public/assets/css/venobox.min.css"
 import fetchPublicationInfo from '@/lib/hasnode/publication'
-import Head from 'next/head'
-import Script from 'next/script'
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({
 	weight: ['200', '400', '500', '600', '700'],
@@ -78,6 +77,8 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${inter.variable} ${jost.variable}`}>
         {children}
+		<SpeedInsights />
+		<Analytics />
       </body>
     </html>
   );

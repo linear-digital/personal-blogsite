@@ -5,8 +5,14 @@ import PostCardSM from '../Card/PostCardSM'
 import fetchPublicationInfo from '@/lib/hasnode/publication'
 import { fetcher } from '@/lib/dataFetcher'
 
-export default async function EditorBlog1() {
-    const blogs = await fetcher({ path: "/blog?limit=4&skip=5" })
+export async function getServerSideProps() {
+    // Fetch data from external API
+    const blogs = await fetcher({ path: "/blog?limit=4" })
+    // Pass data to the page via props
+    return { props: { blogs } }
+}
+
+export default async function EditorBlog1({ blogs }) {
     const blogs1 = blogs[0] || null
     const blogs2 = blogs[1] || null
     const blogs3 = blogs[2] || null
@@ -23,7 +29,7 @@ export default async function EditorBlog1() {
                             </div>
                             <div className="post-card editor-post-card">
                                 <div className="post-thumb">
-                                    <Link href={`/${blogs1?._id}`}>
+                                    <Link href={`/${blogs1.slug}`}>
                                         <img src={blogs1?.coverImage?.url} alt={blogs1?.title} />
                                     </Link>
                                 </div>
@@ -34,7 +40,7 @@ export default async function EditorBlog1() {
                                         ))
                                     }
                                     <h3 className="title">
-                                        <Link href={`/${blogs1?._id}`}>{blogs1?.title}</Link>
+                                        <Link href={`/${blogs1.slug}`}>{blogs1?.title}</Link>
                                     </h3>
                                     <p>{blogs1?.brief}</p>
                                     <ul className="post-list">
@@ -59,7 +65,7 @@ export default async function EditorBlog1() {
                                 <img src={publisher?.author.profilePicture} alt="post" />
                                 <h3 className="author">Hello, I'm Tamiz</h3>
                                 <p>
-                                   {publisher?.descriptionSEO}
+                                    {publisher?.descriptionSEO}
                                 </p>
                                 <Link href="/author-details" className="default-btn">About Me</Link>
                             </div>

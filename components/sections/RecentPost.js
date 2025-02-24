@@ -25,11 +25,11 @@ export default async function RecentPost() {
                                     blogs?.data?.slice(0, 5)?.map((item, i) => (
                                         <div className="post-card news-post" key={i}>
                                             <div className="post-thumb">
-                                                <Link href={`/${item?._id}`}><img src={postImage(item)} alt={item?.title} /></Link>
+                                                <Link href={`/${item?.slug}`}><img src={postImage(item)} alt={item?.title} /></Link>
                                             </div>
                                             <div className="post-content">
                                                 <h3 className="title">
-                                                    <Link href={`/${item?._id}`}>
+                                                    <Link href={`/${item?.slug}`}>
                                                         {item?.title}
                                                     </Link>
                                                 </h3>
@@ -55,11 +55,11 @@ export default async function RecentPost() {
                                     blogs?.data?.slice(5)?.map((item, i) => (
                                         <div className="post-card news-post" key={i}>
                                             <div className="post-thumb">
-                                                <Link href={`/${item?._id}`}><img src={postImage(item)} alt={item?.title} /></Link>
+                                                <Link href={`/${item?.slug}`}><img src={postImage(item)} alt={item?.title} /></Link>
                                             </div>
                                             <div className="post-content">
                                                 <h3 className="title">
-                                                    <Link href={`/${item?._id}`}>
+                                                    <Link href={`/${item?.slug}`}>
                                                         {item?.title}
                                                     </Link>
                                                 </h3>
