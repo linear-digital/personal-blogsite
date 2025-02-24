@@ -5,6 +5,7 @@ const BASE_URL = "https://genzit.xyz";
 
 const staticPages = [
     "/",
+    "/about",
     "/contact",
     "/author-details",
     "/blogs",
