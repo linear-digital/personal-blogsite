@@ -9,7 +9,7 @@ import Layout from "@/components/layout/Layout"
 import { fetcher } from "@/lib/dataFetcher"
 import TrendingPosts from "@/components/Card/TrendingPosts"
 import Categorys from "@/components/Card/Categorys"
-
+import Error from '../not-found'
 
 export const generateMetadata = async ({
 	params,
@@ -58,6 +58,10 @@ export default async function SinglePost1({ params }) {
 	const ipAdress = ip.ip
 	const post = await fetcher({ path: `/blog/single/${slug}?ip=${ipAdress}` })
 	const postUrl = `https://genzit.xyz/${post.slug}`
+	if (!post?.title) {
+		// navigate to home page
+		return <Error />
+	}
 	return (
 		<>
 			<Layout breadcrumbTitle="title">

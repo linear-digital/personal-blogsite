@@ -32,8 +32,8 @@ export default function Footer1() {
                             <ul className="list">
                                 <li><Link href="/contact">.Contact</Link></li>
                                 <li><Link href="/blogs">.Blog</Link></li>
-                                <li><Link href="/contact">.Complaint</Link></li>
-                                <li><Link href="/contact">.Advertise</Link></li>
+                                <li><Link href="/privacy-policy">.Privacy Policy</Link></li>
+                                <li><Link href="/terms-condition">.Terms & Conditions</Link></li>
                             </ul>
                         </div>
                     </div>
