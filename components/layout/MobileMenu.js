@@ -11,6 +11,7 @@ export default function MobileMenu({ isMobileMenu, handleMobileMenu }) {
 					
 					<li><Link href="/">Home</Link></li>
 					<li><Link href="/blogs">All Blogs</Link></li>
+					<li><Link href="/about">About</Link></li>
 					<li><Link href="/contact">Contact</Link></li>
 				</ul></div>
 

@@ -33,7 +33,7 @@ export default function Footer1() {
                                 <li><Link href="/contact">.Contact</Link></li>
                                 <li><Link href="/blogs">.Blog</Link></li>
                                 <li><Link href="/privacy-policy">.Privacy Policy</Link></li>
-                                <li><Link href="/terms-condition">.Terms & Conditions</Link></li>
+                                <li><Link href="/terms-and-condition">.Terms & Conditions</Link></li>
                             </ul>
                         </div>
                     </div>

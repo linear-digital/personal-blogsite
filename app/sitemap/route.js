@@ -9,7 +9,7 @@ const staticPages = [
     "/author-details",
     "/blogs",
     "/privacy-policy",
-    "/terms-condition",
+    "/terms-and-condition",
 ];
 
 export async function GET() {
