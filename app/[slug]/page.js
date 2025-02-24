@@ -34,6 +34,8 @@ export const generateMetadata = async ({
 				description,
 				images: [imageUrl],
 				type: "article",
+				url: `https://genzit.xyz/${slug}`,
+				site_name: "GENZ IT Blogs",
 			},
 			twitter: {
 				card: "summary_large_image",
