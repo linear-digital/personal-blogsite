@@ -9,6 +9,6 @@ export async function GET(req) {
     const post = await getPostBySlug(slug);
     return new Response(JSON.stringify(post));
   }
-  const blogs = await getPosts(Number(20));
+  const blogs = await getPosts(Number(limit));
   return new Response(JSON.stringify(blogs));
 }
