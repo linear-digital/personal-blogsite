@@ -32,19 +32,19 @@ export default async function AuthorDetails(context) {
 										<h4 className="follow">Follow:</h4>
 										<ul className="social-list d-flex align-items-center">
 											<li>
-												<Link href="/#" className="facebook"><i className="lab la-facebook-f" /></Link>
+												<Link target='_blank' href="https://www.facebook.com/tamiz.uddin.09/" className="facebook"><i className="lab la-facebook-f" /></Link>
 											</li>
 											<li>
-												<Link href="/#" className="twitter"><i className="lab la-twitter" /></Link>
+												<Link target='_blank' href="https://x.com/md_tamiz_uddin" className="twitter"><i className="lab la-twitter" /></Link>
 											</li>
 											<li>
-												<Link href="/#" className="instagram"><i className="lab la-instagram" /></Link>
+												<Link target='_blank' href="https://www.instagram.com/tamiz.uddin.09/" className="instagram"><i className="lab la-instagram" /></Link>
 											</li>
 											<li>
-												<Link href="/#" className="linkedin"><i className="lab la-linkedin-in" /></Link>
+												<Link href="https://www.linkedin.com/in/mdtamiz/" target='_blank' className="linkedin"><i className="lab la-linkedin-in" /></Link>
 											</li>
 											<li>
-												<Link href="/#" className="pinterest"><i className="lab la-pinterest-p" /></Link>
+												<Link href="https://www.pinterest.com/tamizrabbi/" target='_blank' className="pinterest"><i className="lab la-pinterest-p" /></Link>
 											</li>
 										</ul>
 									</div>
