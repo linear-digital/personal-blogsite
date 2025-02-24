@@ -1,9 +1,14 @@
 // app/api/hasnode/route.ts
-import { fetchHashnodeBlogs } from "@/lib/hasnode";
+import { fetchHashnodeBlogs, getPostBySlug, getPosts } from "@/lib/hasnode";
 import { NextRequest } from "next/server";
 
 export async function GET(req) {
-    const limit = req.nextUrl.searchParams.get("limit") || 10;
-  const blogs = await fetchHashnodeBlogs(Number(limit));
+  const limit = req.nextUrl.searchParams.get("limit") || 20;
+  const slug = req.nextUrl.searchParams.get("slug")
+  if (slug) {
+    const post = await getPostBySlug(slug);
+    return new Response(JSON.stringify(post));
+  }
+  const blogs = await getPosts(Number(20));
   return new Response(JSON.stringify(blogs));
 }
