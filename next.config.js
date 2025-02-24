@@ -11,7 +11,11 @@ const nextConfig = {
         missingSuspenseWithCSRBailout: false,
     },
     async rewrites() {
-        return [{ source: "/sitemap.xml", destination: "/sitemap" }];
+        return [
+            { source: "/sitemap.xml", destination: "/sitemap" },
+            { source: "/ads.txt", destination: "/ads" },
+            { source: "/robots.txt", destination: "/robots" }
+        ];
     },
 };
 

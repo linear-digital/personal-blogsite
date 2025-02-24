@@ -1,7 +1,0 @@
-User-agent: *
-Allow: /
-
-# Disallow unnecessary pages (optional)
-
-# Sitemap for faster indexing
-Sitemap: https://genzit.xyz/sitemap.xml

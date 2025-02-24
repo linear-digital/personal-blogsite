@@ -18,10 +18,13 @@ export async function GET() {
     const tags = await fetcher({ path: "/blog/tags" });
 
     const blogPosts = blogs.map(blog => ({
-        slug: blog.slug,
-        lastmod: blog.publishedAt
-    }))
-    const categories = tags.map(tag => tag.slug)
+        slug: encodeURIComponent(blog.slug),
+        lastmod: blog.publishedAt || new Date().toISOString(),
+    }));
+
+    // Process Categories
+    const categories = tags.map(tag => encodeURIComponent(tag.slug));
+
 
     let sitemapEntries = [
         // Static Pages
